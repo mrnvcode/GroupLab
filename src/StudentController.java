@@ -5,7 +5,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+// Define the StudentController class that handles UI events and updates the model and view
 public class StudentController {
+    // Link the elements from the FXML file
     @FXML
     private TableView<Student> studentTable;
     @FXML
@@ -21,8 +23,10 @@ public class StudentController {
     @FXML
     private TextField majorField;
 
+    // Add student action that triggers when the Add button is pressed
     @FXML
     private void addStudent(ActionEvent event) {
+        // Check if all fields are filled
         if (idField.getText().isEmpty() || nameField.getText().isEmpty() || majorField.getText().isEmpty()) {
             // Show error dialog
         } else {
@@ -34,18 +38,20 @@ public class StudentController {
         }
     }
 
+    // Delete student action that triggers when the Delete button is pressed
     @FXML
     private void deleteStudent(ActionEvent event) {
-        // Delete the selected Student from the table
+        // Get the selected Student from the table
         Student selectedStudent = studentTable.getSelectionModel().getSelectedItem();
+        // If a student was selected, remove it from the table
         if (selectedStudent != null) {
             studentTable.getItems().remove(selectedStudent);
         }
     }
 
+    // Initialize the table columns and map them to the corresponding Student attributes
     @FXML
     public void initialize() {
-        // Initialize the table
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         majorColumn.setCellValueFactory(new PropertyValueFactory<>("major"));

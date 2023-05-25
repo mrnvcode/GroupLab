@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Import necessary JavaFX controls -->
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
+<!-- Define the main VBox container. The alignment is center and it has a spacing of 10 pixels between nodes.
+The controller is linked to the StudentController class. -->
 <VBox alignment="CENTER" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="StudentController">
+    <!-- Define the TableView control with the id studentTable -->
     <TableView fx:id="studentTable">
+        <!-- Define the columns for the table -->
         <columns>
+            <!-- Each TableColumn will have a unique id and the text for the header -->
             <TableColumn fx:id="idColumn" text="ID" />
             <TableColumn fx:id="nameColumn" text="Name" />
             <TableColumn fx:id="majorColumn" text="Major" />
         </columns>
     </TableView>
+    <!-- Define TextField controls for inputting student information. Each TextField has a unique id and a prompt text. -->
     <TextField fx:id="idField" promptText="ID" />
     <TextField fx:id="nameField" promptText="Name" />
     <TextField fx:id="majorField" promptText="Major" />
+    <!-- Define Button controls for adding and deleting students.
+    Each button has text and an action method defined.
+    The action methods are linked to methods in the StudentController class. -->
     <Button text="Add Student" onAction="#addStudent" />
     <Button text="Delete Student" onAction="#deleteStudent" />
 </VBox>
